@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
+import Home from './home/home'
 import { Menu } from 'semantic-ui-react'
 
 class App extends Component {
-  render() {
-    const items = [
-      { key: 'editorials', active: true, name: 'Editorials' },
-      { key: 'review', name: 'Reviews' },
-      { key: 'events', name: 'Upcoming Events' },
-    ];
 
+  state = { activeItem: 'home' }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
 
     return (
-      <Menu items={items} />
+      <div>
+        <Menu pointing secondary>
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='cities' active={activeItem === 'cities'} onClick={this.handleItemClick} />
+          <Menu.Item name='contact' active={activeItem === 'contact'} onClick={this.handleItemClick} />
+        </Menu>
+        <Home />
+      </div>
     );
   }
 }
