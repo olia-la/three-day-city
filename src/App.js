@@ -9,7 +9,9 @@ class App extends Component {
       { key: 'editorials', active: true, name: 'Editorials' },
       { key: 'review', name: 'Reviews' },
       { key: 'events', name: 'Upcoming Events' },
-    ]
+    ];
+
+
     return (
       <Menu items={items} />
     );
