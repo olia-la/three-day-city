@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -9,8 +10,8 @@ class Home extends Component {
       <div>
         <Grid>
           <Grid.Row>
-            <Grid.Column floated='right' width={5}>
-              <Button basic size='massive' floated='center'>My cities</Button>
+            <Grid.Column floated='right' width={16}>
+              <Link to='/cities' className='ui basic button big' >My cities</Link>
             </Grid.Column>
           </Grid.Row>
         </Grid>

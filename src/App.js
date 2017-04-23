@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch
+} from 'react-router-dom';
+
 import 'semantic-ui-css/semantic.min.css';
-import Home from './home/home'
-import { Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react';
+
+import './App.css';
+
+import Home from './home/home';
+import CitiesPage from './Cities/CitiesPage';
+import NotFound from './NotFound'
 
 class App extends Component {
 
-  state = { activeItem: 'home' }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render() {
-    const { activeItem } = this.state
-
     return (
-      <div>
-        <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item name='cities' active={activeItem === 'cities'} onClick={this.handleItemClick} />
-          <Menu.Item name='contact' active={activeItem === 'contact'} onClick={this.handleItemClick} />
-        </Menu>
-        <Home />
-      </div>
+      <Router>
+        <div>
+          <Menu pointing secondary>
+            <NavLink exact to='/' className='item' activeClassName='active'>Home</NavLink>
+            <NavLink to='/cities' className='item' activeClassName='active'>Cities</NavLink>
+
+          </Menu>
+          <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/cities' component={CitiesPage}/>
+          <Route component={NotFound}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
