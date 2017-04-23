@@ -11,8 +11,8 @@ import { Menu } from 'semantic-ui-react';
 
 import './App.css';
 
-import Home from './home/home';
-import CitiesPage from './Cities/CitiesPage';
+import Home from './Home/Home';
+import Cities from './Cities/Cities';
 import NotFound from './NotFound'
 
 class App extends Component {
@@ -24,11 +24,10 @@ class App extends Component {
           <Menu pointing secondary>
             <NavLink exact to='/' className='item' activeClassName='active'>Home</NavLink>
             <NavLink to='/cities' className='item' activeClassName='active'>Cities</NavLink>
-
           </Menu>
           <Switch>
           <Route exact path='/' component={Home}/>
-          <Route path='/cities' component={CitiesPage}/>
+          <Route path='/cities' component={Cities}/>
           <Route component={NotFound}/>
           </Switch>
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CitiesPage extends Component {
+class Cities extends Component {
   render() {
     return (
       <p>Cities Page coming soon</p>
@@ -8,4 +8,4 @@ class CitiesPage extends Component {
   }
 }
 
-export default CitiesPage;
+export default Cities;
