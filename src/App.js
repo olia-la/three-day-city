@@ -26,9 +26,9 @@ class App extends Component {
             <NavLink to='/cities' className='item' activeClassName='active'>Cities</NavLink>
           </Menu>
           <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/cities' component={Cities}/>
-          <Route component={NotFound}/>
+            <Route exact path='/' component={Home}/>
+            <Route path='/cities' component={Cities}/>
+            <Route component={NotFound}/>
           </Switch>
         </div>
       </Router>
