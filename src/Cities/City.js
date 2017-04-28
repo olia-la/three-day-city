@@ -84,7 +84,18 @@ class City extends Component {
        </Card.Content>
         <Card.Content>
           <div className='ui two buttons'>
-            <Button basic color='grey' onClick={this.handleOnClick}>Edit</Button>
+            <Button animated basic color='grey' onClick={this.handleOnClick}>
+              <Button.Content hidden>Edit</Button.Content>
+              <Button.Content visible>
+                <Icon name='pencil' />
+              </Button.Content>
+            </Button>
+            <Button animated basic color='red'>
+              <Button.Content hidden>Delete</Button.Content>
+              <Button.Content visible>
+                <Icon name='delete' />
+              </Button.Content>
+            </Button>
           </div>
         </Card.Content>
       </Card>
