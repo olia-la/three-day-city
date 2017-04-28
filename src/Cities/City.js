@@ -6,7 +6,7 @@ class City extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editOn: false,
+      editOn: props.editOn,
       previousName: props.name,
       name: props.name,
       previousDescription: props.description,

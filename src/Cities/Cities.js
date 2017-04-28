@@ -11,12 +11,22 @@ class Cities extends Component {
         {id: 2, name: 'Paris', description: 'test'}
       ]
     }
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
+
+handleOnClick(e) {
+  const cities = this.state.cities;
+  let max = 0;
+  cities.forEach(city => max = city.id > max ? city.id : max);
+  cities.unshift({id: max + 1, editOn: true});
+  this.setState({cities: cities});
+}
+
   render() {
     return (
       <div>
         <Button basic icon='add circle' onClick={this.handleOnClick} />
-        {this.state.cities.map((city) => <City name={city.name} description={city.description} key={city.id}/>)}
+        {this.state.cities.map((city) => <City name={city.name} description={city.description} editOn={city.editOn} key={city.id}/>)}
         
       </div>
     )
