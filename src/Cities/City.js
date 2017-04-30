@@ -10,7 +10,7 @@ class City extends Component {
       previousName: props.name,
       name: props.name,
       previousDescription: props.description,
-      description: props.description
+      description: props.description,
     };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -50,8 +50,6 @@ class City extends Component {
     this.setState({description: e.target.value});
   }
 
-
-
   render() {
     if (this.state.editOn) {
       return (
@@ -90,7 +88,7 @@ class City extends Component {
                 <Icon name='pencil' />
               </Button.Content>
             </Button>
-            <Button animated basic color='red'>
+            <Button animated basic color='red' onClick={() => this.props.removeCity(this.props.id)}>
               <Button.Content hidden>Delete</Button.Content>
               <Button.Content visible>
                 <Icon name='delete' />
